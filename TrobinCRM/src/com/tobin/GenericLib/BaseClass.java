@@ -11,26 +11,27 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseClass implements IAutoConstants{
  public static  WebDriver driver;
- @BeforeClass
-	    public void openBrowser() throws Throwable
+       @BeforeClass
+	   public void openBrowser() throws Throwable
 	   {
-		FileLib flib=new FileLib();
-	String browser=	flib.readPropertyData(properties_path, "browser"); 
-		if(browser.equalsIgnoreCase("chrome"))
+		 FileLib flib=new FileLib();
+	     String browser=	flib.readPropertyData(properties_path, "browser"); 
+		 if(browser.equalsIgnoreCase("chrome"))
 			
 		{
-			System.setProperty(chrome_key, chrome_value);
-			 driver=new ChromeDriver();
+		 System.setProperty(chrome_key, chrome_value);
+		 driver=new ChromeDriver();
 			
 		}
 		else if(browser.equalsIgnoreCase("firefox"))
 		{
-			System.setProperty(firefox_key, firefox_value);
-			 driver=new FirefoxDriver();
+		 System.setProperty(firefox_key, firefox_value);
+		 driver=new FirefoxDriver();
 		}
 		else { 
-			Reporter.log("enter valid browser name",true);
+		 Reporter.log("enter valid browser name",true);
 		}
+		 
 		
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -38,17 +39,18 @@ public class BaseClass implements IAutoConstants{
 			
 		driver.get(appurl);
 		
-		WebDriverCommLib wLib=new WebDriverCommLib();
-		wLib.verifyPage(wLib.getPageTitle(),
+		 WebDriverCommLib wLib=new WebDriverCommLib();
+		 wLib.verifyPage(wLib.getPageTitle(),
 				flib.readPropertyData(properties_path, "loginTitle"),"Login page ");
 		
 		}	
 	
-	@AfterClass (enabled=false) 
-	public void closeBrowser()
-	{
+	     @AfterClass (enabled=false) 
+	     public void closeBrowser()
+	    {
 		
 		driver.quit();
-	}
+		
+	   }
 	
 }
