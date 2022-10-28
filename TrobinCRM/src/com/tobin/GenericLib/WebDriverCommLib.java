@@ -20,7 +20,8 @@ public class WebDriverCommLib {
 	 public void verifyPage(String actual,String expected,String pageName)
 	 {
 		 Assert.assertEquals(actual,expected);
-		 Reporter.log( pageName+" is Displayed",true);
+		 Reporter.log( pageName+" is Displayed ",true);
+		 
 	 }
 	 public void selectOption(WebElement element, String text)
 		{
