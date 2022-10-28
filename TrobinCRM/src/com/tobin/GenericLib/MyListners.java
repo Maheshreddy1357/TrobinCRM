@@ -24,7 +24,7 @@ public class MyListners implements ITestListener {
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-				Reporter.log(result.getName()+" method success",true);
+				Reporter.log(result.getName()+" method success ",true);
 	}
 
 	@Override
@@ -36,6 +36,7 @@ public class MyListners implements ITestListener {
 		try {
 			Files.copy(src,dest);
 		} catch (IOException e) {
+			  
 			
 			e.printStackTrace();
 		}
