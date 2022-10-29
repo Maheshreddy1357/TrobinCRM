@@ -24,7 +24,7 @@ public class MyListners implements ITestListener {
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-				Reporter.log(result.getName()+" method success ",true);
+				Reporter.log(result.getName()+" method succes ",true);
 	}
 
 	@Override
